@@ -24,9 +24,9 @@ candaq_io_update(void)
 {
 	if (PORTE & (0x08)){
 		 candaq_io_values |= 0x01;
-		uint8_t msg[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //later, change to 16bit x 4 
-		msg[1] = candaq_io_values;
-		candaq_can_send(1, 0x400, msg, 8);
+	//	uint8_t msg[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //later, change to 16bit x 4 
+	//	msg[1] = candaq_io_values;
+	//	candaq_can_send(1, 0x400, msg, 8);
 		}
 	else candaq_io_values &= ~0x01;
 	

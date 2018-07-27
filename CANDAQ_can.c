@@ -98,7 +98,11 @@ candaq_can_get_id(void)
 void
 candaq_can_send_inputs(void) //this needs to be edited to send values from SPI not from pin
 {
-	uint8_t msg[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+	uint8_t msg[8] = {0, 0, 0, 0, 0, 0, 0, 0}; //later, change to 16bit x 4
+	msg[1] = 1;
+	msg[3] = 1;
+	msg[5] = 1;
+	candaq_can_send(1, 0x400, msg, 8);
 		
 	//msg[1] = (PINC & (1 << PINC6)) > 0;
 	//msg[3] = (PINC & (1 << PINC0)) > 0;
